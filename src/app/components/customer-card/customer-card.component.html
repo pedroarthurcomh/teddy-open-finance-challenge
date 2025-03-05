@@ -1,0 +1,26 @@
+<article class="cliente-card">
+  <h3>
+    <strong>{{customer.name}}</strong>
+  </h3>
+  <p>Salário: R$ {{customer.salary | currency:'BRL':'symbol':'1.2-2'}}</p>
+  <p>Empresa: R$ {{customer.companyValuation | currency:'BRL':'symbol':'1.2-2'}}</p>
+  <div class="icons" *ngIf="!selected; else selectedButton">
+    <button matTooltip="Selecionar">
+      <img src="plus.svg"/>
+    </button>
+    <button matTooltip="Editar" (click)="editUser(customer)">
+      <img src="pencil.svg"/>
+    </button>
+    <button matTooltip="Excluir" (click)="deleteUser(customer)">
+      <img src="trash.svg"/>
+    </button>
+  </div>
+
+  <ng-template #selectedButton>
+    <div class="icons">
+      <button matTooltip="Selecionar">
+        <img src="less.svg"/>
+      </button>
+    </div>
+  </ng-template>
+</article>

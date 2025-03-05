@@ -11,25 +11,8 @@
     </div>
   </div>
 
-  <section class="clientes-container" *ngIf="clientes$ | async as clientes">
-    <article
-      class="cliente-card"
-      *ngFor="let cliente of clientes"
-      [id]="cliente.id"
-    >
-      <h3>
-        <strong>{{ cliente.name }}</strong>
-      </h3>
-      <p>Salário: R${{ cliente.salary }}</p>
-      <p>Empresa: R${{ cliente.companyValuation }}</p>
-      <div class="icons">
-        <a><img src="plus.svg" alt="" /></a>
-        <a><img src="pencil.svg" alt="Editar" (click)="editUser(cliente)"/></a>
-        <a
-          ><img src="trash.svg" alt="Excluir" (click)="deleteUser(cliente)"
-        /></a>
-      </div>
-    </article>
+  <section class="clientes-container" *ngIf="clientes$ | async as customers">
+    <app-customer-card *ngFor="let customer of customers" [customer]="customer" [selected]="false"></app-customer-card>
   </section>
 
   <button class="btn-criar" (click)="newUser()">Criar cliente</button>

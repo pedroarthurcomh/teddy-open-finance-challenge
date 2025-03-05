@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ClientesService } from '../../services/clientes.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,7 @@ import { ClientesService } from '../../services/clientes.service';
 export class HeaderComponent implements OnInit {
   username!: string | null;
 
-  constructor(private router: Router, private apiService: ClientesService) {}
+  constructor(private router: Router, private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.username = this.apiService.getUsername();

@@ -5,8 +5,8 @@ import {
   OnInit,
 } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Cliente } from '../../types/cliente.type';
-import { ClientesService } from '../../services/clientes.service';
+import { Customer } from '../../types/customer.type';
+import { ApiService } from '../../services/api.service';
 import { NewUser } from '../../types/new-user.type';
 import {
   FormBuilder,
@@ -25,11 +25,11 @@ import { EMPTY } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class EditClienteModalComponent implements OnInit {
-  cliente?: Cliente = inject(MAT_DIALOG_DATA);
+  cliente?: Customer = inject(MAT_DIALOG_DATA);
   form: FormGroup;
 
   constructor(
-    private clientesService: ClientesService,
+    private apiService: ApiService,
     private dialogRef: MatDialogRef<EditClienteModalComponent>,
     private fb: FormBuilder,
     private toastr: ToastrService
@@ -49,7 +49,7 @@ export class EditClienteModalComponent implements OnInit {
 
   ngOnInit(): void {
     if (!!this.cliente)
-      this.clientesService
+      this.apiService
         .getById(this.cliente.id)
         .subscribe((cliente) => this.form.patchValue({ ...cliente }));
   }
@@ -59,7 +59,7 @@ export class EditClienteModalComponent implements OnInit {
 
     const body: NewUser = this.form.value;
     if (!!this.cliente) {
-      this.clientesService.editUser(this.cliente.id, body).subscribe(
+      this.apiService.editUser(this.cliente.id, body).subscribe(
         (res) => {
           this.toastr.success('Usuário atualizado com sucesso', 'Sucesso');
           this.dialogRef.close();
@@ -70,7 +70,7 @@ export class EditClienteModalComponent implements OnInit {
         }
       );
     } else {
-      this.clientesService.newUser(body).subscribe(
+      this.apiService.newUser(body).subscribe(
         (res) => {
           this.toastr.success('Usuário criado com sucesso', 'Sucesso');
           this.dialogRef.close();

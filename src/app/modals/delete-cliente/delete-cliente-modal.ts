@@ -1,7 +1,9 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Cliente } from '../../types/cliente.type';
-import { ClientesService } from '../../services/clientes.service';
+import { Customer } from '../../types/customer.type';
+import { ApiService } from '../../services/api.service';
+import { ToastrService } from 'ngx-toastr';
+import { EMPTY } from 'rxjs';
 @Component({
   selector: 'app-delete-cliente',
   standalone: false,
@@ -10,17 +12,24 @@ import { ClientesService } from '../../services/clientes.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DeleteClienteComponent {
-  cliente: Cliente = inject(MAT_DIALOG_DATA);
+  cliente: Customer = inject(MAT_DIALOG_DATA);
 
   constructor(
-    private clientesService: ClientesService,
-    private dialogRef: MatDialogRef<DeleteClienteComponent>
+    private apiService: ApiService,
+    private dialogRef: MatDialogRef<DeleteClienteComponent>,
+    private toastr: ToastrService
   ) {}
 
-  deleteUser(cliente: Cliente) {
-    this.clientesService.deleteUser(cliente.id).subscribe((res) => {
-      console.log(res);
-      this.dialogRef.close();
-    });
+  deleteUser(customer: Customer) {
+    this.apiService.deleteUser(customer.id).subscribe(
+      (res) => {
+        this.toastr.success('Usuário excluído com sucesso', 'Sucesso');
+        this.dialogRef.close();
+      },
+      (error) => {
+        this.toastr.error(error.message, 'Erro');
+        return EMPTY;
+      }
+    );
   }
 }

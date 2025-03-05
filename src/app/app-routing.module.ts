@@ -36,7 +36,15 @@ const routes: Routes = [
       {
         path: 'selected-customers',
         component: SelectedCustomersComponent
-      }
+      },
+      {
+        path: 'home',
+        component: ClientesComponent
+      },
+      {
+        path: 'products',
+        component: ClientesComponent
+      },
     ]
   }
 ];

@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ClientesService } from '../../services/clientes.service';
+import { ApiService } from '../../services/api.service';
 
 @Component({
   selector: 'app-welcome',
@@ -20,7 +20,7 @@ export class WelcomeComponent {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private clientesService: ClientesService
+    private apiService: ApiService
   ) {
     this.form = this.fb.group({
       username: new FormControl<string | null>(null, {

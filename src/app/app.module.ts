@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import {MatTooltipModule} from '@angular/material/tooltip';
 import {
   MatDialogActions,
   MatDialogClose,
@@ -25,6 +26,16 @@ import { ToastrModule } from 'ngx-toastr';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { SelectedCustomersComponent } from './pages/selected-customers/selected-customers.component';
 import { HeaderComponent } from './components/header/header.component';
+import localePt from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { provideNgxMask, NgxMaskConfig, provideEnvironmentNgxMask  } from 'ngx-mask';
+import { CustomerCardComponent } from './components/customer-card/customer-card.component';
+
+registerLocaleData(localePt);
+
+const maskConfig: Partial<NgxMaskConfig> = {
+  validation: false,
+};
 
 @NgModule({
   declarations: [
@@ -35,6 +46,7 @@ import { HeaderComponent } from './components/header/header.component';
     EditClienteModalComponent,
     SelectedCustomersComponent,
     HeaderComponent,
+    CustomerCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,9 +63,10 @@ import { HeaderComponent } from './components/header/header.component';
     MatDialogContent,
     MatDialogTitle,
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    MatTooltipModule,
+    ToastrModule.forRoot(),
   ],
-  providers: [provideHttpClient()],
+  providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'pt-BR' }, provideNgxMask(maskConfig)],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
