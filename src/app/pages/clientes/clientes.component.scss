@@ -55,10 +55,44 @@ nav a:hover, .active {
 }
 
 mat-drawer {
-    
     width: 260px;
-    padding: 20px;
     background-color: #fff;
+}
+
+.navigation-list {
+    width: 100%;
+    padding: 48px 0px 0px 24px !important;
+}
+
+mat-drawer ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+mat-drawer li {
+    width: 100%;
+}
+
+mat-drawer .sidenav-option {
+    width: 100%;
+    padding-left: 14px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 44px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+mat-drawer .nav-active {
+    color: var(--orange);
+    border-right: 2px solid var(--orange);
 }
 
 .example-container {
@@ -69,6 +103,7 @@ mat-drawer {
 
 main {
     width: 100%;
+    height: 100vh;
     padding: 20px 120px;
     margin: auto;
     background-color: var(--ligh-bg);

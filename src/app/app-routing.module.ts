@@ -1,21 +1,43 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { SelectedCustomersComponent } from './pages/selected-customers/selected-customers.component';
+import { HeaderComponent } from './components/header/header.component';
 
 const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'login'
+    redirectTo: 'public'
   },
   {
-    path: 'login',
-    component: LoginComponent
+    path: 'public',
+    children: [
+      {
+        path: '',
+        pathMatch: 'full',
+        redirectTo: 'welcome'
+      },
+      {
+        path: 'welcome',
+        component: WelcomeComponent
+      }
+    ]
   },
   {
-    path: 'clientes',
-    component: ClientesComponent
+    path: 'private',
+    component: HeaderComponent,
+    children: [
+      {
+        path: 'customers',
+        component: ClientesComponent
+      },
+      {
+        path: 'selected-customers',
+        component: SelectedCustomersComponent
+      }
+    ]
   }
 ];
 

@@ -10,14 +10,11 @@ import { NewUser } from '../types/new-user.type';
 })
 export class ClientesService {
   readonly URL_BASE: string = 'https://boasorte.teddybackoffice.com.br';
-  username$= new ReplaySubject<string>(1) ;
 
   constructor(private http: HttpClient) {}
 
   getUsername() {
-    let username: string = '';
-    this.username$.subscribe(name => (username = name)).unsubscribe();
-    return username;
+    return localStorage.getItem('username');
   }
 
   getAllUsers(): Observable<ClientesResponse> {

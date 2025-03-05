@@ -10,6 +10,7 @@ import { map, Observable } from 'rxjs';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DeleteClienteComponent } from '../../modals/delete-cliente/delete-cliente-modal';
 import { EditClienteModalComponent } from '../../modals/edit-cliente-modal/edit-cliente-modal';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-clientes',
@@ -20,14 +21,15 @@ import { EditClienteModalComponent } from '../../modals/edit-cliente-modal/edit-
 })
 export class ClientesComponent implements OnInit {
   readonly dialog = inject(MatDialog);
-  username!: string;
   clientes$!: Observable<Cliente[]>;
 
-  constructor(private clientesService: ClientesService) {}
+  constructor(
+    private clientesService: ClientesService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
     this.getAllUsers();
-    this.username = this.clientesService.getUsername();
   }
 
   getAllUsers() {
@@ -52,4 +54,5 @@ export class ClientesComponent implements OnInit {
       data: cliente,
     });
   }
+
 }

@@ -1,0 +1,47 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="drawer.toggle()">
+      <img src="menu.svg" alt="Logo" />
+    </button>
+    <div class="header-content">
+      <div class="logo">
+        <img src="logo.svg" alt="Teddy Logo" />
+      </div>
+      <nav>
+        <a href="#" class="active">Clientes</a>
+        <a>Clientes selecionados</a>
+        <a (click)="logout()">Sair</a>
+      </nav>
+      <div class="user">
+        Olá, <strong>{{ username }}!</strong>
+      </div>
+    </div>
+  </mat-toolbar>
+  
+  <mat-drawer-container class="example-container" autosize>
+    <mat-drawer #drawer class="example-sidenav" mode="side">
+      <div class="navigation-list">
+        <ul>
+          <li>
+            <button class="sidenav-option">
+              <img src="home.svg" alt="Home">
+              <span>Home</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidenav-option nav-active" >
+              <img src="user.svg" alt="Home">
+              <span>Clientes</span>
+            </button>
+          </li>
+          <li>
+            <button class="sidenav-option">
+              <img src="products.svg" alt="Home">
+              <span>Produtos</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </mat-drawer>
+    
+    <router-outlet></router-outlet>
+  </mat-drawer-container>

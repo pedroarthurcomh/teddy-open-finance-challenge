@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './pages/login/login.component';
 import { ClientesComponent } from './pages/clientes/clientes.component';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -23,14 +22,19 @@ import { DeleteClienteComponent } from './modals/delete-cliente/delete-cliente-m
 import { EditClienteModalComponent } from './modals/edit-cliente-modal/edit-cliente-modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { WelcomeComponent } from './pages/welcome/welcome.component';
+import { SelectedCustomersComponent } from './pages/selected-customers/selected-customers.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
+    WelcomeComponent,
     ClientesComponent,
     DeleteClienteComponent,
     EditClienteModalComponent,
+    SelectedCustomersComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
