@@ -30,6 +30,7 @@ import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 import { provideNgxMask, NgxMaskConfig, provideEnvironmentNgxMask  } from 'ngx-mask';
 import { CustomerCardComponent } from './components/customer-card/customer-card.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 registerLocaleData(localePt);
 
@@ -65,6 +66,7 @@ const maskConfig: Partial<NgxMaskConfig> = {
     BrowserAnimationsModule,
     MatTooltipModule,
     ToastrModule.forRoot(),
+    NgxSkeletonLoaderModule,
   ],
   providers: [provideHttpClient(), { provide: LOCALE_ID, useValue: 'pt-BR' }, provideNgxMask(maskConfig)],
   bootstrap: [AppComponent],

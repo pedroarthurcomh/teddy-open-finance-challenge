@@ -6,7 +6,7 @@ import {
 } from '@angular/core';
 import { Customer } from '../../types/customer.type';
 import { ApiService } from '../../services/api.service';
-import { map, Observable } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DeleteClienteComponent } from '../../modals/delete-cliente/delete-cliente-modal';
 import { EditClienteModalComponent } from '../../modals/edit-cliente-modal/edit-cliente-modal';
@@ -32,7 +32,10 @@ export class ClientesComponent implements OnInit {
   getAllUsers() {
     this.clientes$ = this.apiService
       .getAllUsers()
-      .pipe(map((clientesResponse) => clientesResponse.clients));
+      .pipe(tap((clientesResponse) => setTimeout(() => {
+
+      }, 2000000)),
+      map((clientesResponse) => clientesResponse.clients));
     this.clientes$.subscribe();
   }
 

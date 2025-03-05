@@ -76,7 +76,6 @@ export class EditClienteModalComponent implements OnInit {
           this.dialogRef.close();
         },
         (error) => {
-          console.log(error);
           this.toastr.error(error.message, 'Erro');
           return EMPTY;
         }
