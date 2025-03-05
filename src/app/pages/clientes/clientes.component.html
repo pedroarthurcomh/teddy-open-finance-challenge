@@ -1,6 +1,6 @@
 <main>
-  <div class="header-info">
-    <span><strong>16</strong> encontrados:</span>
+  <div class="header-info" *ngIf="clientes$ | async as clientes">
+    <span><strong>{{clientes.length}}</strong> encontrados:</span>
     <div class="clientes-por-pagina">
       <label for="clientes-por-pagina">Clientes por página:</label>
       <select id="clientes-por-pagina">
