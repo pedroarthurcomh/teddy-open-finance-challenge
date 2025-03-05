@@ -5,7 +5,7 @@
   <p>Salário: R$ {{customer.salary | currency:'BRL':'symbol':'1.2-2'}}</p>
   <p>Empresa: R$ {{customer.companyValuation | currency:'BRL':'symbol':'1.2-2'}}</p>
   <div class="icons" *ngIf="!selected; else selectedButton">
-    <button matTooltip="Selecionar">
+    <button matTooltip="Selecionar" (click)="select(customer.id)">
       <img src="plus.svg"/>
     </button>
     <button matTooltip="Editar" (click)="editUser(customer)">
@@ -17,8 +17,8 @@
   </div>
 
   <ng-template #selectedButton>
-    <div class="icons">
-      <button matTooltip="Selecionar">
+    <div class="icons selected">
+      <button matTooltip="Remover seleção" (click)="removeSelection(customer.id)">
         <img src="less.svg"/>
       </button>
     </div>

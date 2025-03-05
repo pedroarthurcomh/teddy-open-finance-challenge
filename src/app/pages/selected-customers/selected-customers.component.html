@@ -4,7 +4,7 @@
   </div>
 
   <section class="clientes-container" *ngIf="selectedCustomers  as customers">
-    <app-customer-card *ngFor="let customer of customers" [customer]="customer"></app-customer-card>
+    <app-customer-card *ngFor="let customer of customers" [customer]="customer" [selected]="true"></app-customer-card>
   </section>
 
   <button class="btn-clear" (click)="clearSelectedCustomers()">

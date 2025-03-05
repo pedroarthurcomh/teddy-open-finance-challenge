@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CustomerResponse } from '../types/customer-response.type';
 import { Customer } from '../types/customer.type';
@@ -10,6 +10,7 @@ import { NewUser } from '../types/new-user.type';
 })
 export class ApiService {
   readonly URL_BASE: string = 'https://boasorte.teddybackoffice.com.br';
+  updateCustomers$: EventEmitter<any> = new EventEmitter;
 
   constructor(private http: HttpClient) {}
 
