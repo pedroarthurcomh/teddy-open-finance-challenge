@@ -1,14 +1,14 @@
 import { HttpClient } from '@angular/common/http';
-import { EventEmitter, Injectable } from '@angular/core';
-import { Observable, ReplaySubject } from 'rxjs';
-import { ClientesResponse } from '../types/clientes-response.type';
-import { Cliente } from '../types/cliente.type';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CustomerResponse } from '../types/customer-response.type';
+import { Customer } from '../types/customer.type';
 import { NewUser } from '../types/new-user.type';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ClientesService {
+export class ApiService {
   readonly URL_BASE: string = 'https://boasorte.teddybackoffice.com.br';
 
   constructor(private http: HttpClient) {}
@@ -17,12 +17,12 @@ export class ClientesService {
     return localStorage.getItem('username');
   }
 
-  getAllUsers(): Observable<ClientesResponse> {
-    return this.http.get<ClientesResponse>(`${this.URL_BASE}/users`);
+  getAllUsers(): Observable<CustomerResponse> {
+    return this.http.get<CustomerResponse>(`${this.URL_BASE}/users`);
   }
 
-  getById(id: number): Observable<Cliente> {
-    return this.http.get<Cliente>(`${this.URL_BASE}/users/${id}`);
+  getById(id: number): Observable<Customer> {
+    return this.http.get<Customer>(`${this.URL_BASE}/users/${id}`);
   }
 
   newUser(body: NewUser): Observable<NewUser> {
