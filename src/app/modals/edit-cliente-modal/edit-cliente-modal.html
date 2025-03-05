@@ -6,10 +6,18 @@
       </button>
     </div>
     <mat-dialog-content>
-        <form [formGroup]="form">
+        <form [formGroup]="form" novalidate #ngForm="ngForm">
             <input type="text" formControlName="name" placeholder="Digite o nome:">
             <input type="text" formControlName="salary" placeholder="Digite o salário:">
             <input type="text" formControlName="companyValuation" placeholder="Digite o valor da empresa:">
+            <div
+                class="invalid-feedback"
+                [hidden]="!ngForm.submitted && !form.invalid"
+              >
+                <div [hidden]="!form.invalid">
+                  * Campos obrigatório.
+                </div>
+              </div>
         </form>
     </mat-dialog-content>
     <mat-dialog-actions>

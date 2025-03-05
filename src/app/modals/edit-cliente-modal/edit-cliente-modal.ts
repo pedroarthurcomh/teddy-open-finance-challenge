@@ -35,7 +35,9 @@ export class EditClienteModalComponent implements OnInit {
     private toastr: ToastrService
   ) {
     this.form = this.fb.group({
-      name: new FormControl<string>('', { validators: Validators.required }),
+      name: new FormControl<string | null>(null, {
+        validators: Validators.required,
+      }),
       salary: new FormControl<number | null>(null, {
         validators: Validators.required,
       }),
@@ -53,6 +55,8 @@ export class EditClienteModalComponent implements OnInit {
   }
 
   submit() {
+    if (this.form.invalid) return;
+
     const body: NewUser = this.form.value;
     if (!!this.cliente) {
       this.clientesService.editUser(this.cliente.id, body).subscribe(
@@ -61,7 +65,7 @@ export class EditClienteModalComponent implements OnInit {
           this.dialogRef.close();
         },
         (error) => {
-          this.toastr.error(error, 'Erro');
+          this.toastr.error(error.message, 'Erro');
           return EMPTY;
         }
       );
@@ -72,7 +76,8 @@ export class EditClienteModalComponent implements OnInit {
           this.dialogRef.close();
         },
         (error) => {
-          this.toastr.error(error, 'Erro');
+          console.log(error);
+          this.toastr.error(error.message, 'Erro');
           return EMPTY;
         }
       );
