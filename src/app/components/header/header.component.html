@@ -6,9 +6,9 @@
       <div class="logo">
         <img src="logo.svg" alt="Teddy Logo" />
       </div>
-      <nav>
-        <a href="#" class="active">Clientes</a>
-        <a>Clientes selecionados</a>
+      <nav class="header-navigation">
+        <a routerLink="/private/customers" routerLinkActive="active">Clientes</a>
+        <a routerLink="/private/selected-customers" routerLinkActive="active">Clientes selecionados</a>
         <a (click)="logout()">Sair</a>
       </nav>
       <div class="user">

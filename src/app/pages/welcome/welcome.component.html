@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="card">
+    <span>Olá, seja bem-vindo!</span>
+    <form [formGroup]="form" novalidate #ngForm="ngForm">
+      <input
+        type="text"
+        id="nome"
+        name="nome"
+        formControlName="username"
+        placeholder="Digite o seu nome:"
+        autocomplete="off"
+        required
+      />
+      <div
+        class="invalid-feedback"
+        *ngIf="ngForm.submitted && form.controls['username'].errors"
+      >
+        <div *ngIf="form.controls['username'].errors['required']">* Campo obrigatório.</div>
+      </div>
+      <button type="submit" (click)="signIn()">Entrar</button>
+    </form>
+  </div>
+</div>

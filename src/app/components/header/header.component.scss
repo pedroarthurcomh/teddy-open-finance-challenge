@@ -2,7 +2,6 @@
     flex: 1 1 auto;
   }
 
-  
 
 mat-toolbar {
     height: 100px;
@@ -42,6 +41,7 @@ nav {
 nav a {
     text-decoration: none;
     color: black;
+    cursor: pointer;
 }
 
 nav a:hover, .active {
