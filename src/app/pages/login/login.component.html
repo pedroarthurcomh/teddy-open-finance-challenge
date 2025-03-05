@@ -1,0 +1,10 @@
+<div class="container">
+    <div class="card">
+        <span>Olá, seja bem-vindo!</span>
+        <form [formGroup]="form">
+            <input type="text" id="nome" name="nome" formControlName="username"
+            placeholder="Digite o seu nome:" required>
+            <button type="submit" (click)="signIn()">Entrar</button>
+        </form>
+    </div>
+</div>
