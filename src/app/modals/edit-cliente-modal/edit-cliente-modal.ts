@@ -14,6 +14,8 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { EMPTY } from 'rxjs';
 
 @Component({
   selector: 'app-edit-cliente-modal',
@@ -29,11 +31,14 @@ export class EditClienteModalComponent implements OnInit {
   constructor(
     private clientesService: ClientesService,
     private dialogRef: MatDialogRef<EditClienteModalComponent>,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private toastr: ToastrService
   ) {
     this.form = this.fb.group({
       name: new FormControl<string>('', { validators: Validators.required }),
-      salary: new FormControl<number | null>(null, { validators: Validators.required }),
+      salary: new FormControl<number | null>(null, {
+        validators: Validators.required,
+      }),
       companyValuation: new FormControl<number | null>(null, {
         validators: Validators.required,
       }),
@@ -49,17 +54,28 @@ export class EditClienteModalComponent implements OnInit {
 
   submit() {
     const body: NewUser = this.form.value;
-    if(!!this.cliente) {
-      this.clientesService.editUser(this.cliente.id, body)
-      .subscribe((res) => {
-        console.log(res);
-        this.dialogRef.close();
-      });
+    if (!!this.cliente) {
+      this.clientesService.editUser(this.cliente.id, body).subscribe(
+        (res) => {
+          this.toastr.success('Usuário atualizado com sucesso', 'Sucesso');
+          this.dialogRef.close();
+        },
+        (error) => {
+          this.toastr.error(error, 'Erro');
+          return EMPTY;
+        }
+      );
     } else {
-      this.clientesService.newUser(body).subscribe((res) => {
-        console.log(res);
-        this.dialogRef.close();
-      })
+      this.clientesService.newUser(body).subscribe(
+        (res) => {
+          this.toastr.success('Usuário criado com sucesso', 'Sucesso');
+          this.dialogRef.close();
+        },
+        (error) => {
+          this.toastr.error(error, 'Erro');
+          return EMPTY;
+        }
+      );
     }
   }
 }

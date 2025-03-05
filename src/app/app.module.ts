@@ -18,10 +18,11 @@ import {
   MatDialogClose,
   MatDialogContent,
   MatDialogTitle,
-  MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { DeleteClienteComponent } from './modals/delete-cliente/delete-cliente-modal';
 import { EditClienteModalComponent } from './modals/edit-cliente-modal/edit-cliente-modal';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,8 @@ import { EditClienteModalComponent } from './modals/edit-cliente-modal/edit-clie
     MatDialogClose,
     MatDialogContent,
     MatDialogTitle,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
