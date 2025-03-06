@@ -12,6 +12,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import {
   MatDialogActions,
@@ -28,19 +29,11 @@ import { SelectedCustomersComponent } from './pages/selected-customers/selected-
 import { HeaderComponent } from './components/header/header.component';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
-import {
-  provideNgxMask,
-  NgxMaskConfig,
-  provideEnvironmentNgxMask,
-} from 'ngx-mask';
+import { NgxMaskDirective, NgxMaskPipe, provideNgxMask } from 'ngx-mask';
 import { CustomerCardComponent } from './components/customer-card/customer-card.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 registerLocaleData(localePt);
-
-const maskConfig: Partial<NgxMaskConfig> = {
-  validation: false,
-};
 
 @NgModule({
   declarations: [
@@ -62,6 +55,7 @@ const maskConfig: Partial<NgxMaskConfig> = {
     MatButtonModule,
     MatSidenavModule,
     MatToolbarModule,
+    MatPaginatorModule,
     MatIconModule,
     MatDialogActions,
     MatDialogClose,
@@ -71,11 +65,13 @@ const maskConfig: Partial<NgxMaskConfig> = {
     MatTooltipModule,
     ToastrModule.forRoot(),
     NgxSkeletonLoaderModule,
+    NgxMaskDirective,
+    NgxMaskPipe
   ],
   providers: [
     provideHttpClient(),
-    { provide: LOCALE_ID, useValue: 'pt-BR' },
-    provideNgxMask(maskConfig),
+    provideNgxMask(),
+    { provide: LOCALE_ID, useValue: 'pt-BR' }
   ],
   bootstrap: [AppComponent],
 })

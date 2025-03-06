@@ -8,8 +8,8 @@
     <mat-dialog-content>
         <form [formGroup]="form" novalidate #ngForm="ngForm">
             <input type="text" formControlName="name" placeholder="Digite o nome:">
-            <input type="number" formControlName="salary" placeholder="Digite o salário:" mask="separator.2" thousandSeparator="." decimalMarker=",">
-            <input type="number" formControlName="companyValuation" placeholder="Digite o valor da empresa:" mask="separator.2" thousandSeparator="." decimalMarker=",">
+            <input type="text" formControlName="salary" placeholder="Digite o salário:" mask="separator.2" thousandSeparator="." decimalMarker="," prefix="R$ ">
+            <input type="text" formControlName="companyValuation" placeholder="Digite o valor da empresa:" mask="separator.2" thousandSeparator="." decimalMarker="," prefix="R$ ">
             <div
                 class="invalid-feedback"
                 [hidden]="!ngForm.submitted && !form.invalid"
