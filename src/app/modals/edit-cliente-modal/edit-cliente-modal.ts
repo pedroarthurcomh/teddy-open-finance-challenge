@@ -55,7 +55,10 @@ export class EditClienteModalComponent implements OnInit {
   }
 
   submit() {
-    if (this.form.invalid) return;
+    if (this.form.invalid) {
+      this.toastr.warning('Preencha os campos obrigatórios', '', { timeOut: 1000});
+      return
+    };
 
     const body: NewUser = this.form.value;
     if (!!this.cliente) {
