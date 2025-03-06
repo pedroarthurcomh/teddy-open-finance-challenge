@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "telas_teste": {
+    "teddy_open_finance_teste": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -24,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/telas_teste",
+            "outputPath": "dist/teddy_open_finance_teste",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -70,10 +70,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "telas_teste:build:production"
+              "buildTarget": "teddy_open_finance_teste:build:production"
             },
             "development": {
-              "buildTarget": "telas_teste:build:development"
+              "buildTarget": "teddy_open_finance_teste:build:development"
             }
           },
           "defaultConfiguration": "development"

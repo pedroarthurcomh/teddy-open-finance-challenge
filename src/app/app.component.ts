@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'telas_teste';
+  title = 'teddy_open_finance_teste';
 }

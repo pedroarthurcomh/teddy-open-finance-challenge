@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ClientesComponent } from './pages/clientes/clientes.component';
+import { CustomersListComponent } from './pages/customers-list/customers-list.component';
 import { WelcomeComponent } from './pages/welcome/welcome.component';
 import { SelectedCustomersComponent } from './pages/selected-customers/selected-customers.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -9,7 +9,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'public'
+    redirectTo: 'public',
   },
   {
     path: 'public',
@@ -17,13 +17,13 @@ const routes: Routes = [
       {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'welcome'
+        redirectTo: 'welcome',
       },
       {
         path: 'welcome',
-        component: WelcomeComponent
-      }
-    ]
+        component: WelcomeComponent,
+      },
+    ],
   },
   {
     path: 'private',
@@ -31,26 +31,26 @@ const routes: Routes = [
     children: [
       {
         path: 'customers',
-        component: ClientesComponent
+        component: CustomersListComponent,
       },
       {
         path: 'selected-customers',
-        component: SelectedCustomersComponent
+        component: SelectedCustomersComponent,
       },
       {
         path: 'home',
-        component: ClientesComponent
+        component: CustomersListComponent,
       },
       {
         path: 'products',
-        component: ClientesComponent
+        component: CustomersListComponent,
       },
-    ]
-  }
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
