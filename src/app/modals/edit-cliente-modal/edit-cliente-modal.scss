@@ -1,0 +1,62 @@
+* {
+  font-family: "Inter", sans-serif !important;
+}
+
+mat-dialog-container {
+  border-radius: 4px !important;
+}
+
+mat-dialog-content {
+  font-weight: 400 !important;
+  padding-top: 0px !important;
+}
+
+mat-dialog-actions {
+  display: flex;
+  width: 100%;
+}
+
+form {
+  width: 100%;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+input {
+  width: 100%;
+  border-radius: 4px;
+  border: 2px solid #d9d9d9;
+  height: 40px;
+  font-size: 16px;
+  padding-inline: 14px;
+}
+
+.header {
+  display: flex;
+  width: 90%;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+button#submit {
+  background-color: var(--orange);
+  color: #fff !important;
+  border-radius: 4px !important;
+  width: 100%;
+  font-weight: 700;
+}
+
+h6 {
+  font-weight: 700 !important;
+  font-size: 16px !important;
+}

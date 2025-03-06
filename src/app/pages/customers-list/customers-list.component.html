@@ -1,0 +1,111 @@
+<main>
+  <div
+    class="header-info"
+    *ngIf="clientes$ | async as clientes; else skeletonHeader"
+  >
+    <span
+      ><strong>{{ clientes.length }}</strong> encontrados:</span
+    >
+    <div class="clientes-por-pagina">
+      <label for="clientes-por-pagina">Clientes por página:</label>
+      <select id="clientes-por-pagina">
+        <option>16</option>
+        <option>32</option>
+        <option>48</option>
+      </select>
+    </div>
+  </div>
+
+  <ng-template #skeletonHeader>
+    <div class="skeleton-header">
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '135px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '200px' }"
+      ></ngx-skeleton-loader>
+    </div>
+  </ng-template>
+
+  <section
+    class="clientes-container"
+    *ngIf="clientes$ | async as customers; else skeletonCustomerList"
+  >
+    <app-customer-card
+      *ngFor="let customer of customers"
+      [customer]="customer"
+      [selected]="false"
+    ></app-customer-card>
+  </section>
+
+  <ng-template #skeletonCustomerList>
+    <div class="skeleton-customer-list">
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+      <ngx-skeleton-loader
+        count="1"
+        [animation]="'progress-dark'"
+        [theme]="{ width: '285px', height: '138px' }"
+      ></ngx-skeleton-loader>
+    </div>
+  </ng-template>
+
+  <button class="btn-criar" (click)="newUser()">Criar cliente</button>
+
+  <!-- <div class="paginacao">
+    <button>1</button>
+    <span>...</span>
+    <button>3</button>
+    <button class="ativo">4</button>
+    <button>5</button>
+    <span>...</span>
+    <button>12</button>
+  </div> -->
+</main>

@@ -1,0 +1,13 @@
+<main>
+  <div class="header-info">
+    <span><strong>Clientes selecionados:</strong></span>
+  </div>
+
+  <section class="clientes-container" *ngIf="selectedCustomers  as customers">
+    <app-customer-card *ngFor="let customer of customers" [customer]="customer" [selected]="true"></app-customer-card>
+  </section>
+
+  <button class="btn-clear" (click)="clearSelectedCustomers()">
+    Limpar clientes selecionados
+  </button>
+</main>

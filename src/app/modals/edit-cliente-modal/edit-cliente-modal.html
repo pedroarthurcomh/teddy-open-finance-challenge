@@ -1,0 +1,27 @@
+<div>
+    <div class="header">
+      <h6 mat-dialog-title>{{ !!cliente ? 'Editar' : 'Criar' }} cliente:</h6>
+      <button mat-dialog-close>
+        <img src="close.svg" alt="" />
+      </button>
+    </div>
+    <mat-dialog-content>
+        <form [formGroup]="form" novalidate #ngForm="ngForm">
+            <input type="text" formControlName="name" placeholder="Digite o nome:">
+            <input type="number" formControlName="salary" placeholder="Digite o salário:" mask="separator.2" thousandSeparator="." decimalMarker=",">
+            <input type="number" formControlName="companyValuation" placeholder="Digite o valor da empresa:" mask="separator.2" thousandSeparator="." decimalMarker=",">
+            <div
+                class="invalid-feedback"
+                [hidden]="!ngForm.submitted && !form.invalid"
+              >
+                <div [hidden]="!form.invalid">
+                  * Campos obrigatório.
+                </div>
+              </div>
+        </form>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+      <button id="submit" mat-button (click)="submit()">{{ !!cliente ? 'Editar' : 'Criar' }} cliente</button>
+    </mat-dialog-actions>
+  </div>
+  

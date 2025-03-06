@@ -1,0 +1,42 @@
+.cliente-card {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 285px;
+    min-height: 138px;
+    background: white;
+    padding: 15px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.cliente-card h3 {
+    font-size: 16px;
+}
+
+.cliente-card p {
+    font-size: 14px;
+    color: #555;
+}
+
+.icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.icons button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.icons button:hover {
+    color: #f26126;
+}
+
+.selected {
+    justify-content: flex-end !important;
+}
