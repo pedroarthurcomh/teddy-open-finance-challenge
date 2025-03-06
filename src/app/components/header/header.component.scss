@@ -62,10 +62,10 @@ mat-drawer {
 
 .navigation-list {
     width: 100%;
-    padding: 48px 0px 0px 24px !important;
+    padding: 48px 0px !important;
 }
 
-mat-drawer ul {
+ul {
     list-style: none;
     width: 100%;
     display: flex;
@@ -77,9 +77,13 @@ mat-drawer li {
     width: 100%;
 }
 
+li:hover {
+    background-color: var(--light-bg);
+}
+
 mat-drawer .sidenav-option {
     width: 100%;
-    padding-left: 14px;
+    padding-left: 24px;
     display: flex;
     align-items: center;
     gap: 14px;
@@ -89,6 +93,12 @@ mat-drawer .sidenav-option {
     font-size: 16px;
     font-weight: 500;
     background-color: transparent;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidenav-option:hover {
+    background-color: rgb(247, 247, 247) !important;
 }
 
 mat-drawer .nav-active {
@@ -102,8 +112,15 @@ mat-drawer .nav-active {
   }
 
 @media (max-width: 768px) {
-    nav {
+
+    .logo,
+    .user {
         display: none;
+    }
+
+    nav {
+        justify-content: flex-end;
+        font-size: 14px;
     }
 
     .header-info {
