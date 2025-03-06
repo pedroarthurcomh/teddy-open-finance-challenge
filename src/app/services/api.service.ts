@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { EventEmitter, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CustomerResponse } from '../types/customer-response.type';
@@ -10,7 +10,7 @@ import { NewUser } from '../types/new-user.type';
 })
 export class ApiService {
   readonly URL_BASE: string = 'https://boasorte.teddybackoffice.com.br';
-  updateCustomers$: EventEmitter<any> = new EventEmitter;
+  updateCustomers$: EventEmitter<any> = new EventEmitter();
 
   constructor(private http: HttpClient) {}
 
@@ -18,8 +18,11 @@ export class ApiService {
     return localStorage.getItem('username');
   }
 
-  getAllUsers(): Observable<CustomerResponse> {
-    return this.http.get<CustomerResponse>(`${this.URL_BASE}/users`);
+  getAllUsers(page: number, limit: number): Observable<CustomerResponse> {
+    const params = new HttpParams()
+      .set('page', page.toString())
+      .set('limit', limit.toString());
+    return this.http.get<CustomerResponse>(`${this.URL_BASE}/users`, {params});
   }
 
   getById(id: number): Observable<Customer> {
@@ -31,7 +34,7 @@ export class ApiService {
   }
 
   editUser(id: number, body: NewUser): Observable<NewUser> {
-    return this.http.patch<NewUser>(`${this.URL_BASE}/users`, body);
+    return this.http.patch<NewUser>(`${this.URL_BASE}/users/${id}`, body);
   }
 
   deleteUser(id: number): Observable<any> {
