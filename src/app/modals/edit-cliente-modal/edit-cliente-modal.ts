@@ -63,6 +63,7 @@ export class EditClienteModalComponent implements OnInit {
         (res) => {
           this.toastr.success('Usuário atualizado com sucesso', 'Sucesso');
           this.dialogRef.close();
+          location.reload()
         },
         (error) => {
           this.toastr.error(error.message, 'Erro');

@@ -9,7 +9,8 @@ import { ApiService } from '../../services/api.service';
 import { map, Observable, tap } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
 import { EditClienteModalComponent } from '../../modals/edit-cliente-modal/edit-cliente-modal';
-import { Router } from '@angular/router';
+import { CustomerResponse } from '../../types/customer-response.type';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-clientes',
@@ -22,21 +23,41 @@ export class CustomersListComponent implements OnInit {
   readonly dialog = inject(MatDialog);
   clientes$!: Observable<Customer[]>;
 
-  constructor(private apiService: ApiService, private router: Router) {}
+  totalPages: number = 0;
+  currentPage: number = 0;
+  pageSize: number = 10;
+  pageIndex: number = 0;
+
+  constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
     this.getAllUsers();
   }
 
   getAllUsers() {
-    this.clientes$ = this.apiService.getAllUsers().pipe(
-      tap((clientesResponse) => setTimeout(() => {}, 2000000)),
-      map((clientesResponse) => clientesResponse.clients)
-    );
+    this.clientes$ = this.apiService
+      .getAllUsers(this.currentPage + 1, this.pageSize)
+      .pipe(
+        tap((response: CustomerResponse) => {
+          this.totalPages = response.totalPages;
+          this.currentPage = response.currentPage - 1;
+        }),
+        map((clientesResponse) => clientesResponse.clients)
+      );
     this.clientes$.subscribe();
   }
 
   newUser() {
-    this.dialog.open(EditClienteModalComponent);
+    const dialogRef = this.dialog.open(EditClienteModalComponent);
+
+    dialogRef.afterClosed().subscribe(() => {
+      location.reload();
+    });
+  }
+
+  onPageChange(event: PageEvent) {
+    this.currentPage = event.pageIndex;
+    this.pageSize = event.pageSize;
+    this.getAllUsers();
   }
 }

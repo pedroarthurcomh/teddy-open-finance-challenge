@@ -15,27 +15,28 @@ main {
   font-size: 18px;
 }
 
-.clientes-por-pagina {
+.customers-per-page {
   display: flex;
   gap: 9px;
 }
 
-.clientes-container,
+.customers-container,
 .skeleton-customer-list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 15px;
 }
 
-.paginacao {
+.paginator {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
   margin: 20px 0;
+  background-color: transparent !important;
 }
 
-.paginacao button {
+.paginator button {
   background: none;
   border: none;
   font-size: 16px;
@@ -43,7 +44,7 @@ main {
   padding: 5px;
 }
 
-.paginacao .ativo {
+.paginator .ativo {
   background: #f26126;
   color: white;
   border-radius: 5px;
@@ -75,7 +76,7 @@ main {
     display: none;
   }
 
-  .clientes-container {
+  .customers-container {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   }
 
