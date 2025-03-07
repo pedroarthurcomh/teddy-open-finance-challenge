@@ -14,6 +14,7 @@ import { ApiService } from '../../services/api.service';
 })
 export class CustomerCardComponent {
   readonly dialog = inject(MatDialog);
+  isCardSelected: boolean = false;
 
   @Input() customer!: Customer;
   @Input() selected!: boolean;
@@ -53,6 +54,8 @@ export class CustomerCardComponent {
   }
 
   select(customerId: number) {
+    this.selected = true;
+
     let alredyHas = this.getSelectedCustomers();
 
     if (alredyHas.includes(customerId)) return;
@@ -65,6 +68,8 @@ export class CustomerCardComponent {
   }
 
   removeSelection(id: number) {
+    this.selected = false;
+
     let alredyHas = this.getSelectedCustomers();
     if (alredyHas.includes(id)) {
       alredyHas = alredyHas.filter((customer: number) => customer !== id);
