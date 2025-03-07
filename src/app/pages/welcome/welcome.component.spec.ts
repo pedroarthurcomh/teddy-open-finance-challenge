@@ -3,7 +3,6 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { WelcomeComponent } from './welcome.component';
 import { provideHttpClient } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
-import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
 
 describe('WelcomeComponent', () => {
@@ -15,7 +14,7 @@ describe('WelcomeComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [WelcomeComponent],
       providers: [provideHttpClient()],
-      imports: [ReactiveFormsModule, RouterTestingModule],
+      imports: [ReactiveFormsModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(WelcomeComponent);
