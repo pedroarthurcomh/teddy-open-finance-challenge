@@ -52,7 +52,7 @@ nav a:hover, .active {
 
 .user {
     font-weight: 400;
-    font-size: 16px;
+    font-size: var(--default-txt);
 }
 
 mat-drawer {
@@ -90,7 +90,7 @@ mat-drawer .sidenav-option {
     height: 44px;
     border: none;
     outline: none;
-    font-size: 16px;
+    font-size: var(--default-txt);
     font-weight: 500;
     background-color: transparent;
     cursor: pointer;
