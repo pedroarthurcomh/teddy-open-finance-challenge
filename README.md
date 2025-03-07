@@ -16,9 +16,8 @@
 <p align="center">
  <a href="#about">Sobre</a> • 
  <a href="#started">Como rodar a aplicação</a> • 
-  <a href="#started">App Routes</a> • 
-  <a href="#colab">Como rodar a aplicação via Docke</a> •
- <a href="#contribute">Contribute</a>
+  <a href="#docker">Como rodar a aplicação via Docker</a> • 
+ <a href="#final">Considerações finais</a>
 </p>
 
 <p align="center">
@@ -78,7 +77,7 @@ http://localhost:4200/
 
 
 
-<h2 id="routes">📍 Como rodar a aplicação via Docker</h2>
+<h2 id="docker">📍 Como rodar a aplicação via Docker</h2>
 
 Você também pode rodar esta aplicação usando o Docker, caso o tenha. Aqui vai o passo-a-passo:
 
@@ -102,7 +101,7 @@ docker run -p 80:80 angular-docker
 http://localhost:80
 ```
 
-<h2 id="colab">🤝 Considerações</h2>
+<h2 id="final">🤝 Considerações finais</h2>
 
 Gostaria de agradecer a oportunidade de participar desse processo seletivo. Com certeza foi um marco na minha carreira, e obtive muito aprendizado a partir disso.
 
