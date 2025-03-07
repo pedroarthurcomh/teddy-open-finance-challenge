@@ -6,7 +6,7 @@
     </button>
   </div>
   <mat-dialog-content
-    >Você está prestes a excluir o cliente: <strong>{{cliente.name}}</strong>
+    >Você está prestes a excluir o cliente: <strong id="name">{{cliente.name}}</strong>
   </mat-dialog-content>
   <mat-dialog-actions>
     <button id="submit" mat-button (click)="deleteUser(cliente)">Excluir cliente</button>

@@ -13,7 +13,7 @@ import { CustomerResponse } from '../../types/customer-response.type';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
-  selector: 'app-clientes',
+  selector: 'app-customers-list',
   standalone: false,
   templateUrl: './customers-list.component.html',
   styleUrl: './customers-list.component.scss',

@@ -4,16 +4,8 @@
     *ngIf="clientes$ | async as clientes; else skeletonHeader"
   >
     <span
-      ><strong>{{ clientes.length }}</strong> encontrados:</span
+      ><strong id="total-clientes">{{ clientes.length }}</strong> encontrados:</span
     >
-    <!-- <div class="customers-per-page">
-      <label for="customers-per-page">Clientes por página:</label>
-      <select id="customers-per-page">
-        <option>16</option>
-        <option>32</option>
-        <option>48</option>
-      </select>
-    </div> -->
   </div>
 
   <ng-template #skeletonHeader>
