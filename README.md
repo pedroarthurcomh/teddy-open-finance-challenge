@@ -17,6 +17,7 @@
  <a href="#about">Sobre</a> • 
  <a href="#started">Como rodar a aplicação</a> • 
   <a href="#docker">Como rodar a aplicação via Docker</a> • 
+  <a href="#tests">Testes</a> •
  <a href="#final">Considerações finais</a>
 </p>
 
@@ -99,6 +100,16 @@ docker run -p 80:80 angular-docker
 2. Acesse a aplicação no navegador:
 ```bash
 http://localhost:80
+```
+
+<h2 id="tests">📍 Testes</h2>
+
+Para rodas os testes da aplicação também é muito simples:
+
+1. Navegue até a pasta do projeto no terminal.
+2. Rode o seguinte comando:
+```bash
+npm run test
 ```
 
 <h2 id="final">🤝 Considerações finais</h2>
