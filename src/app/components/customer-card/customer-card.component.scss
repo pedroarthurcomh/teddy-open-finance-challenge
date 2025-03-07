@@ -20,6 +20,10 @@
     color: #555;
 }
 
+.card-active {
+    border: 2px solid var(--orange);
+}
+
 .icons {
     display: flex;
     justify-content: space-between;
