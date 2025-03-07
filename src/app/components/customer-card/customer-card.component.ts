@@ -21,14 +21,22 @@ export class CustomerCardComponent {
   constructor(private toastr: ToastrService, private apiService: ApiService) {}
 
   editUser(customer: Customer) {
-    this.dialog.open(EditClienteModalComponent, {
+    const dialogRef = this.dialog.open(EditClienteModalComponent, {
       data: customer,
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      location.reload();
     });
   }
 
   deleteUser(customer: Customer) {
-    this.dialog.open(DeleteClienteComponent, {
+    const dialogRef = this.dialog.open(DeleteClienteComponent, {
       data: customer,
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      location.reload();
     });
   }
 

@@ -22,7 +22,9 @@ export class ApiService {
     const params = new HttpParams()
       .set('page', page.toString())
       .set('limit', limit.toString());
-    return this.http.get<CustomerResponse>(`${this.URL_BASE}/users`, {params});
+    return this.http.get<CustomerResponse>(`${this.URL_BASE}/users`, {
+      params,
+    });
   }
 
   getById(id: number): Observable<Customer> {
@@ -37,7 +39,9 @@ export class ApiService {
     return this.http.patch<NewUser>(`${this.URL_BASE}/users/${id}`, body);
   }
 
-  deleteUser(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.URL_BASE}/users/${id}`);
+  deleteUser(id: number): Observable<string> {
+    return this.http.delete(`${this.URL_BASE}/users/${id}`, {
+      responseType: 'text',
+    }) as Observable<string>;
   }
 }

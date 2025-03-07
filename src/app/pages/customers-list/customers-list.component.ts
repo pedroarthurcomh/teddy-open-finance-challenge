@@ -44,7 +44,6 @@ export class CustomersListComponent implements OnInit {
         }),
         map((clientesResponse) => clientesResponse.clients)
       );
-    this.clientes$.subscribe();
   }
 
   newUser() {

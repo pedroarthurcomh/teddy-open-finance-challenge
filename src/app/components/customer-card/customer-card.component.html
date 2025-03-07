@@ -2,8 +2,8 @@
   <h3>
     <strong>{{customer.name}}</strong>
   </h3>
-  <p>Salário: R$ {{customer.salary | currency:'BRL':'symbol':'1.2-2'}}</p>
-  <p>Empresa: R$ {{customer.companyValuation | currency:'BRL':'symbol':'1.2-2'}}</p>
+  <p>Salário: {{customer.salary | currency:'BRL':'symbol':'1.2-2'}}</p>
+  <p>Empresa: {{customer.companyValuation | currency:'BRL':'symbol':'1.2-2'}}</p>
   
   <div class="icons" *ngIf="!selected; else selectedButton">
     <button matTooltip="Selecionar" (click)="select(customer.id)">

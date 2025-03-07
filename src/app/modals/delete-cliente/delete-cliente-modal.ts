@@ -27,7 +27,7 @@ export class DeleteClienteComponent {
         this.dialogRef.close();
       },
       (error) => {
-        this.toastr.error(error.message, 'Erro');
+        this.toastr.error(error.error.message, 'Erro');
         return EMPTY;
       }
     );
